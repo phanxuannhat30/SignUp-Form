@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="logo">
+            <div class="odin-logo">
+                <img src="sources/odin-lined.png" alt="Odin logo">
+            </div>
+            <h1 class="logo-name">ODIN</h1>
+        </div>
+        <p class="credit">©2023 designed by Nhat dep trai.</p>
+    </div>
+    <div class="main">
+        <div class="intro">
+            <h2>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started. <br><br>You <em>know</em> you want to.</h2>
+        </div>
+        <div class="form-container">
+            <div class="form-info">
+                <h2>Let's do this!</h2>
+                <form action="./nowhere" method="POST">
+                    <p class="form-row">
+                        <label for="first-name"><span class="info-title">FIRST NAME</span>
+                            <input type="text" id="first-name" name="first-name" maxlength="30" required>
+                        </label>
+                    </p>
+                    <p class="form-row">
+                        <label for="last-name"><span class="info-title">LAST NAME</span>
+                            <input type="text" id="last-name" name="last-name" maxlength="30" required>
+                        </label>
+                    </p>
+                    <p class="form-row">
+                        <label for="email"><span class="info-title">EMAIL</span>
+                            <input type="email" id="email" name="email" required>
+                        </label>
+                    </p>
+                    <p class="form-row">
+                        <label for="phone-num"><span class="info-title">PHONE NUMBER</span>
+                            <input type="text" id="phone-num" name="phone-num" required>
+                        </label>
+                    </p>
+                    <p class="form-row">
+                        <label for="pwd"><span class="info-title">PASSWORD</span>
+                            <input type="password" id="pwd" name="password" required>
+                        </label>
+                    </p>
+                    <p class="form-row">
+                        <label for="confirm-pwd"><span class="info-title">CONFIRM PASSWORD</span>
+                            <input type="password" id="-confirm-pwd" name="confirm-password" required>
+                        </label>
+                    </p>
+                    <p id="message"></p>
+                </div>
+                <div class="submit-button">
+                    <button type="submit" onclick="checkPassword()">Create Account</button>
+                </div>
+            </form>
+        </div>
+        <p class="sign-in">Already have an account? <a href="#">Log in</a></p>
+    </div>
+    <script>
+        const form = document.getElementById("form");
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            checkPassword();
+        })
+        function checkPassword() {
+            let password = document.getElementById("pwd").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+            let message = document.getElementById("message");
+
+            if (password == confirmPassword) {
+                message.textContent = "Passwords ";
+            } else {
+                message.textContent = "Passwords do not match";
+            }
+        }
+    </script>
+</body>
+</html>
